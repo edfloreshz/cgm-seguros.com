@@ -223,7 +223,7 @@
                         <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Asistencia vial
                             24/7</li>
                     </ul>
-                    <a href="#formulario-cotizacion" data-tipo="Seguro de Auto"
+                    <a href="#formulario-cotizacion" data-tipo="Autos"
                         class="btn-cotizar inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors mt-auto">
                         <i class="fas fa-file-alt mr-2"></i>
                         Solicitar Cotización
@@ -246,7 +246,7 @@
                         </li>
                         <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Medicamentos</li>
                     </ul>
-                    <a href="#formulario-cotizacion" data-tipo="Seguro de Gastos Médicos"
+                    <a href="#formulario-cotizacion" data-tipo="Gastos Médicos"
                         class="btn-cotizar inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors mt-auto">
                         <i class="fas fa-file-alt mr-2"></i>
                         Solicitar Cotización
@@ -273,7 +273,7 @@
                             Seguro para mascotas
                         </li>
                     </ul>
-                    <a href="#formulario-cotizacion" data-tipo="Seguro de Daños"
+                    <a href="#formulario-cotizacion" data-tipo="Daños"
                         class="btn-cotizar inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors mt-auto">
                         <i class="fas fa-file-alt mr-2"></i>
                         Solicitar Cotización
@@ -298,7 +298,7 @@
                         <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Planes de ahorro
                         </li>
                     </ul>
-                    <a href="#formulario-cotizacion" data-tipo="Seguro de Vida"
+                    <a href="#formulario-cotizacion" data-tipo="Vida"
                         class="btn-cotizar inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors mt-auto">
                         <i class="fas fa-file-alt mr-2"></i>
                         Solicitar Cotización
@@ -396,8 +396,50 @@
                     </p>
                 </div>
 
-                <form action="https://formsubmit.co/contacto@cgm-seguros.com" method="POST"
-                    class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8">
+                <!-- Mensaje de Confirmación (oculto por defecto) -->
+                <div id="mensaje-confirmacion"
+                    class="hidden bg-green-50 dark:bg-green-900/20 border-2 border-green-500 rounded-lg shadow-lg p-8 mb-8">
+                    <div class="text-center">
+                        <div class="text-green-500 text-6xl mb-4">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-green-800 dark:text-green-300 mb-3">¡Solicitud Enviada con
+                            Éxito!</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-2">
+                            Tu solicitud de cotización ha sido recibida correctamente.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                            Nos pondremos en contacto contigo próximamente para proporcionarte tu cotización
+                            personalizada.
+                        </p>
+                        <button onclick="resetearFormulario()"
+                            class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors font-semibold">
+                            <i class="fas fa-plus mr-2"></i>Nueva Solicitud
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mensaje de Error (oculto por defecto) -->
+                <div id="mensaje-error"
+                    class="hidden bg-red-50 dark:bg-red-900/20 border-2 border-red-500 rounded-lg shadow-lg p-8 mb-8">
+                    <div class="text-center">
+                        <div class="text-red-500 text-6xl mb-4">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-300 mb-3">Error al Enviar</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6">
+                            Hubo un problema al enviar tu solicitud. Por favor, intenta nuevamente o contáctanos
+                            directamente.
+                        </p>
+                        <button onclick="resetearFormulario()"
+                            class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors font-semibold">
+                            <i class="fas fa-redo mr-2"></i>Intentar Nuevamente
+                        </button>
+                    </div>
+                </div>
+
+                <form id="formulario-cotizacion-form" action="https://formsubmit.co/contacto@cgm-seguros.com"
+                    method="POST" class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8">
                     <!-- Configuración de FormSubmit -->
                     <input type="hidden" name="_subject" value="Nueva Solicitud de Cotización">
                     <input type="hidden" name="_captcha" value="false">
@@ -412,24 +454,14 @@
                         <select id="tipo-seguro" name="Tipo_de_Seguro" required
                             class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
                             <option value="">Selecciona un tipo de seguro</option>
-                            <option value="Seguro de Auto">Seguro de Auto</option>
-                            <option value="Seguro de Gastos Médicos">Seguro de Gastos Médicos</option>
-                            <option value="Seguro de Daños">Seguro de Daños</option>
-                            <option value="Seguro de Vida">Seguro de Vida</option>
+                            <option value="Autos">Autos</option>
+                            <option value="Gastos Médicos">Gastos Médicos</option>
+                            <option value="Vida">Vida</option>
+                            <option value="Daños">Daños</option>
                         </select>
                     </div>
 
-                    <!-- Nombre Completo -->
-                    <div class="mb-6">
-                        <label for="nombre" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
-                            <i class="fas fa-user mr-2"></i>Nombre Completo
-                        </label>
-                        <input type="text" id="nombre" name="Nombre" required
-                            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
-                            placeholder="Tu nombre completo">
-                    </div>
-
-                    <!-- Email -->
+                    <!-- Campos de Contacto (siempre visibles) -->
                     <div class="mb-6">
                         <label for="email" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
                             <i class="fas fa-envelope mr-2"></i>Correo Electrónico
@@ -439,7 +471,6 @@
                             placeholder="tu@email.com">
                     </div>
 
-                    <!-- Teléfono -->
                     <div class="mb-6">
                         <label for="telefono" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
                             <i class="fas fa-phone mr-2"></i>Teléfono
@@ -449,21 +480,277 @@
                             placeholder="(662) 123-4567">
                     </div>
 
-                    <!-- Mensaje -->
+                    <!-- Campos Comunes (se muestran después de seleccionar tipo de seguro) -->
+                    <div id="campos-comunes" class="hidden">
+                        <div class="mb-6">
+                            <label for="nombre-contratante"
+                                class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <i class="fas fa-user mr-2"></i>Nombre del Contratante
+                            </label>
+                            <input type="text" id="nombre-contratante" name="Nombre_Contratante"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                placeholder="Nombre completo del contratante">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="edad-contratante"
+                                class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <i class="fas fa-calendar mr-2"></i>Edad del Contratante
+                            </label>
+                            <input type="number" id="edad-contratante" min="18" max="100"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                placeholder="Edad en años">
+                            <input type="hidden" id="edad-ano-contratante" name="Edad_Contratante">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="codigo-postal"
+                                class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Código Postal
+                            </label>
+                            <input type="text" id="codigo-postal" name="Codigo_Postal"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                placeholder="Código postal">
+                        </div>
+                    </div>
+
+                    <!-- Formulario específico para AUTOS -->
+                    <div id="form-autos" class="hidden">
+                        <div class="mb-6">
+                            <label for="tipo-vehiculo"
+                                class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <i class="fas fa-car mr-2"></i>Tipo de Vehículo
+                            </label>
+                            <select id="tipo-vehiculo" name="Tipo_Vehiculo"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+                                <option value="">Selecciona un tipo</option>
+                                <option value="Automóvil">Automóvil</option>
+                                <option value="Pick-up">Pick-up</option>
+                                <option value="Moto">Moto</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="marca-auto" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <i class="fas fa-tag mr-2"></i>Marca del Auto
+                            </label>
+                            <input type="text" id="marca-auto" name="Marca_Auto"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                placeholder="Ej: Toyota, Honda, Ford">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="modelo-auto" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <i class="fas fa-calendar-alt mr-2"></i>Modelo del Auto
+                            </label>
+                            <input type="number" id="modelo-auto" name="Modelo_Auto" min="1950" max="2026"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                placeholder="Ej: Jetta 2026">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="version-auto" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <i class="fas fa-cogs mr-2"></i>Versión del Auto
+                            </label>
+                            <input type="text" id="version-auto" name="Version_Auto"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                placeholder="Ej: LX, EX, Sport">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="uso-vehiculo" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <i class="fas fa-briefcase mr-2"></i>Uso del Vehículo
+                            </label>
+                            <select id="uso-vehiculo" name="Uso_Vehiculo"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+                                <option value="">Selecciona el uso</option>
+                                <option value="Particular">Particular</option>
+                                <option value="Comercial">Comercial</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Formulario específico para GASTOS MÉDICOS -->
+                    <div id="form-gastos-medicos" class="hidden">
+                        <div class="mb-6">
+                            <label for="es-asegurado-gm"
+                                class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <i class="fas fa-user-check mr-2"></i>¿Es usted el asegurado?
+                            </label>
+                            <select id="es-asegurado-gm" name="Es_Asegurado"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+                                <option value="">Selecciona una opción</option>
+                                <option value="Si">Sí</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                        <div id="campos-asegurado-gm" class="hidden">
+                            <div class="mb-6">
+                                <label for="nombre-asegurado-gm"
+                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    <i class="fas fa-user mr-2"></i>Nombre del Asegurado
+                                </label>
+                                <input type="text" id="nombre-asegurado-gm" name="Nombre_Asegurado"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                    placeholder="Nombre completo del asegurado">
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="edad-asegurado-gm"
+                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    <i class="fas fa-calendar mr-2"></i>Edad del Asegurado
+                                </label>
+                                <input type="number" id="edad-asegurado-gm" min="0" max="100"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                    placeholder="Edad en años">
+                                <input type="hidden" id="edad-ano-asegurado-gm" name="Edad_Asegurado">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario específico para VIDA -->
+                    <div id="form-vida" class="hidden">
+                        <div class="mb-6">
+                            <label for="es-asegurado-vida"
+                                class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <i class="fas fa-user-check mr-2"></i>¿Es usted el asegurado?
+                            </label>
+                            <select id="es-asegurado-vida" name="Es_Asegurado"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+                                <option value="">Selecciona una opción</option>
+                                <option value="Si">Sí</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                        <div id="campos-asegurado-vida" class="hidden">
+                            <div class="mb-6">
+                                <label for="nombre-asegurado-vida"
+                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    <i class="fas fa-user mr-2"></i>Nombre del Asegurado
+                                </label>
+                                <input type="text" id="nombre-asegurado-vida" name="Nombre_Asegurado"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                    placeholder="Nombre completo del asegurado">
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="edad-asegurado-vida"
+                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    <i class="fas fa-calendar mr-2"></i>Edad del Asegurado
+                                </label>
+                                <input type="number" id="edad-asegurado-vida" min="0" max="100"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                    placeholder="Edad en años">
+                                <input type="hidden" id="edad-ano-asegurado-vida" name="Edad_Asegurado">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario específico para DAÑOS -->
+                    <div id="form-danos" class="hidden">
+                        <div class="mb-6">
+                            <label for="tipo-dano" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <i class="fas fa-home mr-2"></i>Tipo de Protección
+                            </label>
+                            <select id="tipo-dano" name="Tipo_Dano"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+                                <option value="">Selecciona un tipo</option>
+                                <option value="Hogar">Hogar</option>
+                                <option value="Mascotas">Mascotas</option>
+                            </select>
+                        </div>
+
+                        <!-- Campos específicos para HOGAR -->
+                        <div id="campos-hogar" class="hidden">
+                            <div class="mb-6">
+                                <label for="perfil-ubicacion"
+                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    <i class="fas fa-house-user mr-2"></i>Perfil de la Ubicación
+                                </label>
+                                <select id="perfil-ubicacion" name="Perfil_Ubicacion"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+                                    <option value="">Selecciona un perfil</option>
+                                    <option value="Propietario">Propietario</option>
+                                    <option value="Arrendador">Arrendador</option>
+                                    <option value="Arrendatario">Arrendatario</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="cerca-agua"
+                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    <i class="fas fa-water mr-2"></i>¿La ubicación está a menos de 250 metros de lago o
+                                    laguna?
+                                </label>
+                                <select id="cerca-agua" name="Cerca_Agua"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="Si">Sí</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Campos específicos para MASCOTAS -->
+                        <div id="campos-mascotas" class="hidden">
+                            <div class="mb-6">
+                                <label for="tipo-mascota"
+                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    <i class="fas fa-paw mr-2"></i>Tipo de Mascota
+                                </label>
+                                <select id="tipo-mascota" name="Tipo_Mascota"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+                                    <option value="">Selecciona un tipo</option>
+                                    <option value="Perro">Perro</option>
+                                    <option value="Gato">Gato</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="raza-mascota"
+                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    <i class="fas fa-dna mr-2"></i>Raza
+                                </label>
+                                <input type="text" id="raza-mascota" name="Raza_Mascota"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                    placeholder="Raza de la mascota">
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="edad-mascota"
+                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    <i class="fas fa-birthday-cake mr-2"></i>Edad de la Mascota
+                                </label>
+                                <input type="number" id="edad-mascota" name="Edad_Mascota" min="0" max="30"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                    placeholder="Edad en años">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mensaje (Opcional) -->
                     <div class="mb-6">
                         <label for="mensaje" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
                             <i class="fas fa-comment mr-2"></i>Mensaje (Opcional)
                         </label>
                         <textarea id="mensaje" name="Mensaje" rows="4"
                             class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"
-                            placeholder="Cuéntanos más sobre tus necesidades..."></textarea>
+                            placeholder="Información adicional que desees compartir..."></textarea>
                     </div>
 
                     <!-- Botón de Envío -->
-                    <button type="submit"
+                    <button type="submit" id="btn-enviar"
                         class="w-full bg-primary text-white font-bold py-4 px-6 rounded-lg hover:bg-orange-600 transition-colors shadow-lg">
-                        <i class="fas fa-paper-plane mr-2"></i>
-                        Enviar Solicitud
+                        <span id="btn-texto">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Enviar Solicitud
+                        </span>
+                        <span id="btn-cargando" class="hidden">
+                            <i class="fas fa-spinner fa-spin mr-2"></i>
+                            Enviando...
+                        </span>
                     </button>
                 </form>
             </div>
@@ -621,9 +908,266 @@
                 const selectElement = document.getElementById('tipo-seguro');
                 if (selectElement && tipoSeguro) {
                     selectElement.value = tipoSeguro;
+                    // Disparar el evento change para mostrar los campos
+                    selectElement.dispatchEvent(new Event('change'));
                 }
             });
         });
+
+        // Función para ocultar todos los formularios específicos
+        function ocultarTodosFormularios() {
+            document.getElementById('campos-comunes').classList.add('hidden');
+            document.getElementById('form-autos').classList.add('hidden');
+            document.getElementById('form-gastos-medicos').classList.add('hidden');
+            document.getElementById('form-vida').classList.add('hidden');
+            document.getElementById('form-danos').classList.add('hidden');
+            document.getElementById('campos-asegurado-gm').classList.add('hidden');
+            document.getElementById('campos-asegurado-vida').classList.add('hidden');
+            document.getElementById('campos-hogar').classList.add('hidden');
+            document.getElementById('campos-mascotas').classList.add('hidden');
+        }
+
+        // Función para actualizar campos requeridos
+        function actualizarCamposRequeridos(formularioActivo) {
+            // Remover required de todos los campos dinámicos
+            const todosCamposDinamicos = document.querySelectorAll('#campos-comunes input, #campos-comunes select, #form-autos input, #form-autos select, #form-gastos-medicos input, #form-gastos-medicos select, #form-vida input, #form-vida select, #form-danos input, #form-danos select');
+            todosCamposDinamicos.forEach(campo => {
+                campo.removeAttribute('required');
+            });
+
+            // Agregar required solo a los campos visibles del formulario activo
+            if (formularioActivo) {
+                const camposActivos = document.querySelectorAll(`#campos-comunes input:not([type="hidden"]), #campos-comunes select, ${formularioActivo} input:not([type="hidden"]):not(#mensaje):not([id*="asegurado"]), ${formularioActivo} select`);
+                camposActivos.forEach(campo => {
+                    // No hacer obligatorios los campos de asegurado por defecto
+                    if (!campo.closest('.hidden') && campo.id !== 'mensaje') {
+                        campo.setAttribute('required', 'required');
+                    }
+                });
+            }
+        }
+
+        // Manejar cambio de tipo de seguro
+        document.getElementById('tipo-seguro').addEventListener('change', function () {
+            const tipoSeleccionado = this.value;
+            ocultarTodosFormularios();
+
+            if (tipoSeleccionado) {
+                // Mostrar campos comunes
+                document.getElementById('campos-comunes').classList.remove('hidden');
+
+                // Mostrar formulario específico según el tipo
+                switch (tipoSeleccionado) {
+                    case 'Autos':
+                        document.getElementById('form-autos').classList.remove('hidden');
+                        actualizarCamposRequeridos('#form-autos');
+                        break;
+                    case 'Gastos Médicos':
+                        document.getElementById('form-gastos-medicos').classList.remove('hidden');
+                        actualizarCamposRequeridos('#form-gastos-medicos');
+                        break;
+                    case 'Vida':
+                        document.getElementById('form-vida').classList.remove('hidden');
+                        actualizarCamposRequeridos('#form-vida');
+                        break;
+                    case 'Daños':
+                        document.getElementById('form-danos').classList.remove('hidden');
+                        actualizarCamposRequeridos('#form-danos');
+                        break;
+                }
+            }
+        });
+
+        // Manejar "¿Es usted el asegurado?" para Gastos Médicos
+        document.getElementById('es-asegurado-gm').addEventListener('change', function () {
+            const camposAsegurado = document.getElementById('campos-asegurado-gm');
+            const nombreAsegurado = document.getElementById('nombre-asegurado-gm');
+            const edadAsegurado = document.getElementById('edad-asegurado-gm');
+
+            if (this.value === 'No') {
+                camposAsegurado.classList.remove('hidden');
+                nombreAsegurado.setAttribute('required', 'required');
+                edadAsegurado.setAttribute('required', 'required');
+            } else {
+                camposAsegurado.classList.add('hidden');
+                nombreAsegurado.removeAttribute('required');
+                edadAsegurado.removeAttribute('required');
+            }
+        });
+
+        // Manejar "¿Es usted el asegurado?" para Vida
+        document.getElementById('es-asegurado-vida').addEventListener('change', function () {
+            const camposAsegurado = document.getElementById('campos-asegurado-vida');
+            const nombreAsegurado = document.getElementById('nombre-asegurado-vida');
+            const edadAsegurado = document.getElementById('edad-asegurado-vida');
+
+            if (this.value === 'No') {
+                camposAsegurado.classList.remove('hidden');
+                nombreAsegurado.setAttribute('required', 'required');
+                edadAsegurado.setAttribute('required', 'required');
+            } else {
+                camposAsegurado.classList.add('hidden');
+                nombreAsegurado.removeAttribute('required');
+                edadAsegurado.removeAttribute('required');
+            }
+        });
+
+        // Manejar tipo de daño (Hogar o Mascotas)
+        document.getElementById('tipo-dano').addEventListener('change', function () {
+            const camposHogar = document.getElementById('campos-hogar');
+            const camposMascotas = document.getElementById('campos-mascotas');
+
+            // Ocultar ambos primero
+            camposHogar.classList.add('hidden');
+            camposMascotas.classList.add('hidden');
+
+            // Remover required de todos los campos de daños
+            camposHogar.querySelectorAll('input, select').forEach(campo => {
+                campo.removeAttribute('required');
+            });
+            camposMascotas.querySelectorAll('input, select').forEach(campo => {
+                campo.removeAttribute('required');
+            });
+
+            // Mostrar y hacer requeridos los campos según la selección
+            if (this.value === 'Hogar') {
+                camposHogar.classList.remove('hidden');
+                camposHogar.querySelectorAll('input, select').forEach(campo => {
+                    campo.setAttribute('required', 'required');
+                });
+            } else if (this.value === 'Mascotas') {
+                camposMascotas.classList.remove('hidden');
+                camposMascotas.querySelectorAll('input, select').forEach(campo => {
+                    campo.setAttribute('required', 'required');
+                });
+            }
+        });
+
+        // Función para calcular año de nacimiento basado en edad
+        function calcularAnoNacimiento(edad) {
+            const anoActual = new Date().getFullYear();
+            return anoActual - edad;
+        }
+
+        // Formatear edad con año de nacimiento
+        function formatearEdadConAno(edad) {
+            if (!edad || edad < 0) return '';
+            const anoNacimiento = calcularAnoNacimiento(edad);
+            return `${edad} años (${anoNacimiento})`;
+        }
+
+        // Event listener para edad del contratante
+        document.getElementById('edad-contratante').addEventListener('input', function () {
+            const edad = parseInt(this.value);
+            const campoOculto = document.getElementById('edad-ano-contratante');
+            if (edad && edad > 0) {
+                campoOculto.value = formatearEdadConAno(edad);
+            } else {
+                campoOculto.value = '';
+            }
+        });
+
+        // Event listener para edad del asegurado (Gastos Médicos)
+        document.getElementById('edad-asegurado-gm').addEventListener('input', function () {
+            const edad = parseInt(this.value);
+            const campoOculto = document.getElementById('edad-ano-asegurado-gm');
+            if (edad && edad >= 0) {
+                campoOculto.value = formatearEdadConAno(edad);
+            } else {
+                campoOculto.value = '';
+            }
+        });
+
+        // Event listener para edad del asegurado (Vida)
+        document.getElementById('edad-asegurado-vida').addEventListener('input', function () {
+            const edad = parseInt(this.value);
+            const campoOculto = document.getElementById('edad-ano-asegurado-vida');
+            if (edad && edad >= 0) {
+                campoOculto.value = formatearEdadConAno(edad);
+            } else {
+                campoOculto.value = '';
+            }
+        });
+
+        // Manejar envío del formulario de cotización
+        const formularioCotizacion = document.getElementById('formulario-cotizacion-form');
+        const btnEnviar = document.getElementById('btn-enviar');
+        const btnTexto = document.getElementById('btn-texto');
+        const btnCargando = document.getElementById('btn-cargando');
+        const mensajeConfirmacion = document.getElementById('mensaje-confirmacion');
+        const mensajeError = document.getElementById('mensaje-error');
+
+        formularioCotizacion.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Mostrar estado de carga
+            btnEnviar.disabled = true;
+            btnTexto.classList.add('hidden');
+            btnCargando.classList.remove('hidden');
+
+            try {
+                // Preparar los datos del formulario
+                const formData = new FormData(formularioCotizacion);
+
+                // Enviar formulario
+                const response = await fetch(formularioCotizacion.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Ocultar formulario
+                    formularioCotizacion.classList.add('hidden');
+
+                    // Mostrar mensaje de confirmación
+                    mensajeConfirmacion.classList.remove('hidden');
+
+                    // Scroll suave al mensaje
+                    mensajeConfirmacion.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    throw new Error('Error en el envío');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+
+                // Ocultar formulario
+                formularioCotizacion.classList.add('hidden');
+
+                // Mostrar mensaje de error
+                mensajeError.classList.remove('hidden');
+
+                // Scroll suave al mensaje
+                mensajeError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } finally {
+                // Restaurar botón
+                btnEnviar.disabled = false;
+                btnTexto.classList.remove('hidden');
+                btnCargando.classList.add('hidden');
+            }
+        });
+
+        // Función para resetear el formulario y volver a mostrarlo
+        function resetearFormulario() {
+            // Ocultar mensajes
+            mensajeConfirmacion.classList.add('hidden');
+            mensajeError.classList.add('hidden');
+
+            // Resetear y mostrar formulario
+            formularioCotizacion.reset();
+            formularioCotizacion.classList.remove('hidden');
+
+            // Ocultar todos los campos dinámicos
+            ocultarTodosFormularios();
+
+            // Scroll al formulario
+            formularioCotizacion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Hacer la función global para que el botón onclick pueda accederla
+        window.resetearFormulario = resetearFormulario;
     </script>
 </body>
 

@@ -1,2 +1,3 @@
-# clau-website
-Personal website for Clau
+# CGM Seguros
+
+Sitio web para CGM Seguros

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 2562 549" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-6624,0)">
+        <g id="name-h" transform="matrix(1.28057,0,0,0.274444,-1858.92,0)">
+            <rect x="6624.33" y="0" width="2000" height="2000" style="fill:none;"/>
+            <g transform="matrix(1,0,0,1,-12.6314,-72.3946)">
+                <g transform="matrix(1.73542,0,0,8.09756,6108.42,-8909.32)">
+                    <g transform="matrix(166.667,0,0,166.667,692.08,1288.18)">
+                    </g>
+                    <text x="354.58px" y="1288.18px" style="font-family:'Phosphate-Solid', 'Phosphate';font-size:166.667px;fill:rgb(222,131,59);">C<tspan x="447.747px 563.913px " y="1288.18px 1288.18px ">GM</tspan></text>
+                </g>
+                <g transform="matrix(1.71964,0,0,8.02395,7074.52,-8822.88)">
+                    <g transform="matrix(166.667,0,0,166.667,856.413,1288.18)">
+                    </g>
+                    <text x="190.247px" y="1288.18px" style="font-family:'Phosphate-Solid', 'Phosphate';font-size:166.667px;fill:rgb(128,157,121);">Seguros</text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

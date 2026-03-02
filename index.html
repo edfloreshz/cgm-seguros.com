@@ -45,8 +45,12 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#ee9246',
-                        secondary: '#f5e7d1',
+                        // Brand palette
+                        primary: '#ef9345', // Warm Orange - buttons / highlights
+                        secondary: '#f6e7d3', // Cream Beige - backgrounds
+                        text: '#392714', // Dark Brown - main text
+                        altText: '#405a3f', // Forest Green - alternate text
+                        banner: '#adb69c', // Sage Green - nav/footer banner
                     }
                 }
             }
@@ -54,9 +58,9 @@
     </script>
 </head>
 
-<body>
+<body class="bg-secondary text-text dark:bg-gray-900 dark:text-gray-100">
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 shadow-sm z-50">
+    <header class="fixed top-0 left-0 right-0 bg-secondary dark:bg-gray-900 shadow-sm z-50">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
@@ -65,25 +69,25 @@
                 <div class="flex items-center space-x-4">
                     <ul class="hidden md:flex space-x-8 items-center">
                         <li><a href="#inicio"
-                                class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Inicio</a>
+                                class="text-text dark:text-gray-200 hover:text-primary transition-colors">Inicio</a>
                         </li>
                         <li><a href="#servicios"
-                                class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Servicios</a>
+                                class="text-text dark:text-gray-200 hover:text-primary transition-colors">Servicios</a>
                         </li>
                         <li><a href="#tu-agente"
-                                class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Tu
+                                class="text-text dark:text-gray-200 hover:text-primary transition-colors">Tu
                                 Agente</a></li>
                         <li><a href="#contacto"
-                                class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Contacto</a>
+                                class="text-text dark:text-gray-200 hover:text-primary transition-colors">Contacto</a>
                         </li>
                         <li><a href="#formulario-cotizacion"
-                                class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors font-semibold">
+                                class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-text transition-colors font-semibold">
                                 <i class="fas fa-file-alt mr-2"></i>Cotizar
                             </a>
                         </li>
                     </ul>
                     <div class="md:hidden">
-                        <button id="menu-toggle" class="text-gray-700 dark:text-gray-300 hover:text-primary">
+                        <button id="menu-toggle" class="text-text dark:text-gray-200 hover:text-primary">
                             <i class="fas fa-bars text-xl"></i>
                         </button>
                     </div>
@@ -93,19 +97,19 @@
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
                 <ul class="space-y-2">
                     <li><a href="#inicio"
-                            class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Inicio</a>
+                            class="block py-2 text-text dark:text-gray-200 hover:text-primary transition-colors">Inicio</a>
                     </li>
                     <li><a href="#servicios"
-                            class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Servicios</a>
+                            class="block py-2 text-text dark:text-gray-200 hover:text-primary transition-colors">Servicios</a>
                     </li>
                     <li><a href="#tu-agente"
-                            class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Tu
+                            class="block py-2 text-text dark:text-gray-200 hover:text-primary transition-colors">Tu
                             Agente</a></li>
                     <li><a href="#contacto"
-                            class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Contacto</a>
+                            class="block py-2 text-text dark:text-gray-200 hover:text-primary transition-colors">Contacto</a>
                     </li>
                     <li><a href="#formulario-cotizacion"
-                            class="block py-3 mt-2 text-center bg-primary text-white rounded-lg hover:bg-orange-600 transition-colors font-semibold">
+                            class="block py-3 mt-2 text-center bg-primary text-white rounded-lg hover:bg-text transition-colors font-semibold">
                             <i class="fas fa-file-alt mr-2"></i>Cotizar Ahora
                         </a>
                     </li>
@@ -122,7 +126,7 @@
             <img src="resources/header/hero-insurance.jpg" alt="Familia protegida con seguros"
                 class="w-full h-full object-cover" style="object-position: 10% 10%;">
             <div
-                class="absolute inset-0 bg-gradient-to-r from-orange-900/90 via-orange-800/80 to-orange-700/70 dark:from-gray-900/95 dark:via-gray-800/90 dark:to-gray-900/85">
+                class="absolute inset-0 bg-gradient-to-r from-text/85 via-text/90 to-text/85 dark:from-gray-900/95 dark:via-gray-800/90 dark:to-gray-900/85">
             </div>
         </div>
 
@@ -139,7 +143,7 @@
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 mb-12">
                         <a href="#contacto"
-                            class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-secondary hover:text-gray-900 transition-colors shadow-lg">
+                            class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-secondary hover:text-text transition-colors shadow-lg">
                             <i class="fas fa-phone mr-2"></i>
                             Contactar Ahora
                         </a>
@@ -172,21 +176,18 @@
                             class="w-72 h-72 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-lg shadow-2xl p-8 relative">
                             <div class="text-center">
                                 <img src="resources/png/logo.png" alt="Logo" class="h-16 w-16 mx-auto mb-4">
-                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Geovanna Gardner</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mb-4">Agente de Seguros</p>
+                                <h3 class="text-xl font-bold text-text dark:text-white mb-2">Geovanna Gardner</h3>
+                                <p class="text-text dark:text-gray-400 mb-4">Agente de Seguros</p>
                                 <div class="space-y-2">
-                                    <div
-                                        class="flex items-center justify-center text-sm text-gray-500 dark:text-gray-400">
+                                    <div class="flex items-center justify-center text-sm text-text dark:text-gray-400">
                                         <i class="fas fa-phone mr-2"></i>
                                         <a href="tel:+526624524808">+52 (662) 452-4808</a>
                                     </div>
-                                    <div
-                                        class="flex items-center justify-center text-sm text-gray-500 dark:text-gray-400">
+                                    <div class="flex items-center justify-center text-sm text-text dark:text-gray-400">
                                         <i class="fas fa-envelope mr-2"></i>
                                         <a href="mailto:contacto@cgm-seguros.com">contacto@cgm-seguros.com</a>
                                     </div>
-                                    <div
-                                        class="flex items-center justify-center text-sm text-gray-500 dark:text-gray-400">
+                                    <div class="flex items-center justify-center text-sm text-text dark:text-gray-400">
                                         <i class="fas fa-map-marker-alt mr-2"></i>
                                         Hermosillo, Sonora, México
                                     </div>
@@ -200,11 +201,11 @@
     </section>
 
     <!-- Services Section -->
-    <section id="servicios" class="py-16 bg-white dark:bg-gray-900">
+    <section id="servicios" class="py-16 bg-secondary dark:bg-gray-900">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Nuestros Servicios</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-text dark:text-white mb-4">Nuestros Servicios</h2>
+                <p class="text-xl text-text dark:text-gray-300 max-w-3xl mx-auto">
                     Ofrecemos una amplia gama de seguros adaptados a tus necesidades específicas
                 </p>
             </div>
@@ -214,21 +215,21 @@
                     <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-car"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Seguro de Auto</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    <h3 class="text-xl font-semibold text-text dark:text-white mb-3">Seguro de Auto</h3>
+                    <p class="text-text dark:text-gray-300 mb-4">
                         Protege tu vehículo con las mejores coberturas del mercado. Desde responsabilidad civil hasta
                         cobertura amplia.
                     </p>
-                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Responsabilidad
+                    <ul class="space-y-2 text-sm text-text dark:text-gray-300 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-text mr-2"></i>Responsabilidad
                             civil</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Cobertura amplia
+                        <li class="flex items-center"><i class="fas fa-check text-text mr-2"></i>Cobertura amplia
                         </li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Asistencia vial
+                        <li class="flex items-center"><i class="fas fa-check text-text mr-2"></i>Asistencia vial
                             24/7</li>
                     </ul>
                     <a href="#formulario-cotizacion" data-tipo="Autos"
-                        class="btn-cotizar inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors mt-auto">
+                        class="btn-cotizar inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-text transition-colors mt-auto">
                         <i class="fas fa-file-alt mr-2"></i>
                         Solicitar Cotización
                     </a>
@@ -238,34 +239,34 @@
                     <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-user-md"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Seguro de Gastos Médicos</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    <h3 class="text-xl font-semibold text-text dark:text-white mb-3">Seguro de Gastos Médicos</h3>
+                    <p class="text-text dark:text-gray-300 mb-4">
                         Accede a la mejor atención médica con nuestros seguros de gastos médicos mayores.
                     </p>
-                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
+                    <ul class="space-y-2 text-sm text-text dark:text-gray-300 mb-6">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <i class="fas fa-check text-text mr-2"></i>
                             Hospitalización
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <i class="fas fa-check text-text mr-2"></i>
                             Cirugías
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <i class="fas fa-check text-text mr-2"></i>
                             Apoyo por maternidad
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <i class="fas fa-check text-text mr-2"></i>
                             Consultas médicas
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <i class="fas fa-check text-text mr-2"></i>
                             Medicamentos
                         </li>
                     </ul>
                     <a href="#formulario-cotizacion" data-tipo="Gastos Médicos"
-                        class="btn-cotizar inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors mt-auto">
+                        class="btn-cotizar inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-text transition-colors mt-auto">
                         <i class="fas fa-file-alt mr-2"></i>
                         Solicitar Cotización
                     </a>
@@ -275,24 +276,24 @@
                     <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Seguro de Daños</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    <h3 class="text-xl font-semibold text-text dark:text-white mb-3">Seguro de Daños</h3>
+                    <p class="text-text dark:text-gray-300 mb-4">
                         Tu hogar es mucho más que cuatro paredes, es donde vive lo que más quieres. Protégelo contra
                         incendios, robos y desastres naturales, y no olvides a quien siempre está a tu lado: también
                         tenemos seguro para mascotas.
                     </p>
-                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
+                    <ul class="space-y-2 text-sm text-text dark:text-gray-300 mb-6">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <i class="fas fa-check text-text mr-2"></i>
                             Protección del hogar
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <i class="fas fa-check text-text mr-2"></i>
                             Seguro para mascotas
                         </li>
                     </ul>
                     <a href="#formulario-cotizacion" data-tipo="Daños"
-                        class="btn-cotizar inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors mt-auto">
+                        class="btn-cotizar inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-text transition-colors mt-auto">
                         <i class="fas fa-file-alt mr-2"></i>
                         Solicitar Cotización
                     </a>
@@ -302,22 +303,22 @@
                     <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Seguro de Vida</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    <h3 class="text-xl font-semibold text-text dark:text-white mb-3">Seguro de Vida</h3>
+                    <p class="text-text dark:text-gray-300 mb-4">
                         Asegura tu futuro y el de tus seres queridos con nuestros planes de vida flexibles y accesibles.
                     </p>
-                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Cobertura por
+                    <ul class="space-y-2 text-sm text-text dark:text-gray-300 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-text mr-2"></i>Cobertura por
                             muerte</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Invalidez total
+                        <li class="flex items-center"><i class="fas fa-check text-text mr-2"></i>Invalidez total
                         </li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Planes de retiro
+                        <li class="flex items-center"><i class="fas fa-check text-text mr-2"></i>Planes de retiro
                         </li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Planes de ahorro
+                        <li class="flex items-center"><i class="fas fa-check text-text mr-2"></i>Planes de ahorro
                         </li>
                     </ul>
                     <a href="#formulario-cotizacion" data-tipo="Vida"
-                        class="btn-cotizar inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors mt-auto">
+                        class="btn-cotizar inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-text transition-colors mt-auto">
                         <i class="fas fa-file-alt mr-2"></i>
                         Solicitar Cotización
                     </a>
@@ -328,22 +329,22 @@
     </section>
 
     <!-- About Section -->
-    <section id="tu-agente" class="py-16 bg-gray-50 dark:bg-gray-800">
+    <section id="tu-agente" class="py-16 bg-secondary dark:bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <div class="mb-8">
-                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Tu Agente</h2>
-                        <p class="text-xl text-gray-600 dark:text-gray-300">
+                        <h2 class="text-3xl font-bold text-text dark:text-white mb-4">Tu Agente</h2>
+                        <p class="text-xl text-text dark:text-gray-300">
                             Conoce a tu agente de seguros
                         </p>
                     </div>
                     <div class="space-y-4 mb-8">
-                        <p class="text-gray-600 dark:text-gray-300">
+                        <p class="text-text dark:text-gray-300">
                             Soy Geovanna, agente de seguros con más de 8 años de experiencia en el
                             sector. Me especializo en ayudar a las personas a proteger lo que más valoran en la vida.
                         </p>
-                        <p class="text-gray-600 dark:text-gray-300">
+                        <p class="text-text dark:text-gray-300">
                             Mi enfoque personalizado me permite entender las necesidades específicas de cada cliente y
                             encontrar la solución de seguro perfecta.
                         </p>
@@ -354,8 +355,8 @@
                                 <i class="fas fa-handshake"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-gray-900 dark:text-white">Confiable</h4>
-                                <p class="text-gray-600 dark:text-gray-400">Clientes 100% satisfechos</p>
+                                <h4 class="font-semibold text-text dark:text-white">Confiable</h4>
+                                <p class="text-text dark:text-gray-400">Clientes 100% satisfechos</p>
                             </div>
                         </div>
                         <div class="flex items-center">
@@ -363,8 +364,8 @@
                                 <i class="fas fa-clock"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-gray-900 dark:text-white">Disponible</h4>
-                                <p class="text-gray-600 dark:text-gray-400">Atención personalizada 24/7</p>
+                                <h4 class="font-semibold text-text dark:text-white">Disponible</h4>
+                                <p class="text-text dark:text-gray-400">Atención personalizada 24/7</p>
                             </div>
                         </div>
                     </div>
@@ -376,7 +377,7 @@
                             class="w-72 h-96 bg-white dark:bg-gray-900 rounded-lg shadow-xl p-8 relative flex items-center">
                             <div class="text-center w-full">
                                 <img src="resources/png/logo.png" alt="Logo" class="h-20 w-20 mx-auto mb-6 ">
-                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Geovanna Gardner</h3>
+                                <h3 class="text-2xl font-bold text-text dark:text-white mb-2">Geovanna Gardner</h3>
                                 <p class="text-primary font-semibold mb-4">Agente de Seguros</p>
 
                             </div>
@@ -388,34 +389,34 @@
     </section>
 
     <!-- Formulario de Cotización -->
-    <section id="formulario-cotizacion" class="py-16 bg-white dark:bg-gray-900">
+    <section id="formulario-cotizacion" class="py-16 bg-secondary dark:bg-gray-900">
         <div class="container mx-auto px-4">
             <div class="max-w-2xl mx-auto">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Solicita tu Cotización</h2>
-                    <p class="text-xl text-gray-600 dark:text-gray-300">
+                    <h2 class="text-3xl font-bold text-text dark:text-white mb-4">Solicita tu Cotización</h2>
+                    <p class="text-xl text-text dark:text-gray-300">
                         Completa el formulario y te contactaremos a la brevedad
                     </p>
                 </div>
 
                 <!-- Mensaje de Confirmación (oculto por defecto) -->
                 <div id="mensaje-confirmacion"
-                    class="hidden bg-green-50 dark:bg-green-900/20 border-2 border-green-500 rounded-lg shadow-lg p-8 mb-8">
+                    class="hidden bg-secondary dark:bg-green-900/20 border-2 border-text rounded-lg shadow-lg p-8 mb-8">
                     <div class="text-center">
-                        <div class="text-green-500 text-6xl mb-4">
+                        <div class="text-text text-6xl mb-4">
                             <i class="fas fa-check-circle"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-green-800 dark:text-green-300 mb-3">¡Solicitud Enviada con
+                        <h3 class="text-2xl font-bold text-text dark:text-green-300 mb-3">¡Solicitud Enviada con
                             Éxito!</h3>
-                        <p class="text-gray-700 dark:text-gray-300 mb-2">
+                        <p class="text-text dark:text-gray-300 mb-2">
                             Tu solicitud de cotización ha sido recibida correctamente.
                         </p>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        <p class="text-text dark:text-gray-400 mb-6">
                             Nos pondremos en contacto contigo próximamente para proporcionarte tu cotización
                             personalizada.
                         </p>
                         <button onclick="resetearFormulario()"
-                            class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors font-semibold">
+                            class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-text transition-colors font-semibold">
                             <i class="fas fa-plus mr-2"></i>Nueva Solicitud
                         </button>
                     </div>
@@ -441,7 +442,7 @@
                 </div>
 
                 <form id="formulario-cotizacion-form" action="https://formsubmit.co/contacto@cgm-seguros.com"
-                    method="POST" class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8">
+                    method="POST" class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
                     <!-- Configuración de FormSubmit -->
                     <input type="hidden" name="_subject" value="Nueva Solicitud de Cotización">
                     <input type="hidden" name="_captcha" value="false">
@@ -450,7 +451,7 @@
 
                     <!-- Tipo de Seguro -->
                     <div class="mb-6">
-                        <label for="tipo-seguro" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                        <label for="tipo-seguro" class="block text-text dark:text-gray-300 font-semibold mb-2">
                             <i class="fas fa-shield-alt mr-2"></i>Tipo de Seguro
                         </label>
                         <select id="tipo-seguro" name="Tipo_de_Seguro" required
@@ -465,7 +466,7 @@
 
                     <!-- Campos de Contacto (siempre visibles) -->
                     <div class="mb-6">
-                        <label for="email" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                        <label for="email" class="block text-text dark:text-gray-300 font-semibold mb-2">
                             <i class="fas fa-envelope mr-2"></i>Correo Electrónico
                         </label>
                         <input type="email" id="email" name="Email" required
@@ -474,7 +475,7 @@
                     </div>
 
                     <div class="mb-6">
-                        <label for="telefono" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                        <label for="telefono" class="block text-text dark:text-gray-300 font-semibold mb-2">
                             <i class="fas fa-phone mr-2"></i>Teléfono
                         </label>
                         <input type="tel" id="telefono" name="Telefono" required
@@ -486,7 +487,7 @@
                     <div id="campos-comunes" class="hidden">
                         <div class="mb-6">
                             <label for="nombre-contratante"
-                                class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                class="block text-text dark:text-gray-300 font-semibold mb-2">
                                 <i class="fas fa-user mr-2"></i>Nombre del Contratante
                             </label>
                             <input type="text" id="nombre-contratante" name="Nombre_Contratante"
@@ -495,8 +496,7 @@
                         </div>
 
                         <div class="mb-6">
-                            <label for="edad-contratante"
-                                class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                            <label for="edad-contratante" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                 <i class="fas fa-calendar mr-2"></i>Edad del Contratante
                             </label>
                             <input type="number" id="edad-contratante" min="18" max="100"
@@ -506,8 +506,7 @@
                         </div>
 
                         <div class="mb-6">
-                            <label for="codigo-postal"
-                                class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                            <label for="codigo-postal" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                 <i class="fas fa-map-marker-alt mr-2"></i>Código Postal
                             </label>
                             <input type="text" id="codigo-postal" name="Codigo_Postal"
@@ -519,8 +518,7 @@
                     <!-- Formulario específico para AUTOS -->
                     <div id="form-autos" class="hidden">
                         <div class="mb-6">
-                            <label for="tipo-vehiculo"
-                                class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                            <label for="tipo-vehiculo" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                 <i class="fas fa-car mr-2"></i>Tipo de Vehículo
                             </label>
                             <select id="tipo-vehiculo" name="Tipo_Vehiculo"
@@ -533,7 +531,7 @@
                         </div>
 
                         <div class="mb-6">
-                            <label for="marca-auto" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                            <label for="marca-auto" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                 <i class="fas fa-tag mr-2"></i>Marca del Auto
                             </label>
                             <input type="text" id="marca-auto" name="Marca_Auto"
@@ -542,7 +540,7 @@
                         </div>
 
                         <div class="mb-6">
-                            <label for="modelo-auto" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                            <label for="modelo-auto" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                 <i class="fas fa-calendar-alt mr-2"></i>Modelo del Auto
                             </label>
                             <input type="number" id="modelo-auto" name="Modelo_Auto" min="1950" max="2026"
@@ -551,7 +549,7 @@
                         </div>
 
                         <div class="mb-6">
-                            <label for="version-auto" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                            <label for="version-auto" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                 <i class="fas fa-cogs mr-2"></i>Versión del Auto
                             </label>
                             <input type="text" id="version-auto" name="Version_Auto"
@@ -560,7 +558,7 @@
                         </div>
 
                         <div class="mb-6">
-                            <label for="uso-vehiculo" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                            <label for="uso-vehiculo" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                 <i class="fas fa-briefcase mr-2"></i>Uso del Vehículo
                             </label>
                             <select id="uso-vehiculo" name="Uso_Vehiculo"
@@ -575,8 +573,7 @@
                     <!-- Formulario específico para GASTOS MÉDICOS -->
                     <div id="form-gastos-medicos" class="hidden">
                         <div class="mb-6">
-                            <label for="es-asegurado-gm"
-                                class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                            <label for="es-asegurado-gm" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                 <i class="fas fa-user-check mr-2"></i>¿Es usted el asegurado?
                             </label>
                             <select id="es-asegurado-gm" name="Es_Asegurado"
@@ -590,7 +587,7 @@
                         <div id="campos-asegurado-gm" class="hidden">
                             <div class="mb-6">
                                 <label for="nombre-asegurado-gm"
-                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    class="block text-text dark:text-gray-300 font-semibold mb-2">
                                     <i class="fas fa-user mr-2"></i>Nombre del Asegurado
                                 </label>
                                 <input type="text" id="nombre-asegurado-gm" name="Nombre_Asegurado"
@@ -600,7 +597,7 @@
 
                             <div class="mb-6">
                                 <label for="edad-asegurado-gm"
-                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    class="block text-text dark:text-gray-300 font-semibold mb-2">
                                     <i class="fas fa-calendar mr-2"></i>Edad del Asegurado
                                 </label>
                                 <input type="number" id="edad-asegurado-gm" min="0" max="100"
@@ -615,7 +612,7 @@
                     <div id="form-vida" class="hidden">
                         <div class="mb-6">
                             <label for="es-asegurado-vida"
-                                class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                class="block text-text dark:text-gray-300 font-semibold mb-2">
                                 <i class="fas fa-user-check mr-2"></i>¿Es usted el asegurado?
                             </label>
                             <select id="es-asegurado-vida" name="Es_Asegurado"
@@ -629,7 +626,7 @@
                         <div id="campos-asegurado-vida" class="hidden">
                             <div class="mb-6">
                                 <label for="nombre-asegurado-vida"
-                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    class="block text-text dark:text-gray-300 font-semibold mb-2">
                                     <i class="fas fa-user mr-2"></i>Nombre del Asegurado
                                 </label>
                                 <input type="text" id="nombre-asegurado-vida" name="Nombre_Asegurado"
@@ -639,7 +636,7 @@
 
                             <div class="mb-6">
                                 <label for="edad-asegurado-vida"
-                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    class="block text-text dark:text-gray-300 font-semibold mb-2">
                                     <i class="fas fa-calendar mr-2"></i>Edad del Asegurado
                                 </label>
                                 <input type="number" id="edad-asegurado-vida" min="0" max="100"
@@ -653,7 +650,7 @@
                     <!-- Formulario específico para DAÑOS -->
                     <div id="form-danos" class="hidden">
                         <div class="mb-6">
-                            <label for="tipo-dano" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                            <label for="tipo-dano" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                 <i class="fas fa-home mr-2"></i>Tipo de Protección
                             </label>
                             <select id="tipo-dano" name="Tipo_Dano"
@@ -668,7 +665,7 @@
                         <div id="campos-hogar" class="hidden">
                             <div class="mb-6">
                                 <label for="perfil-ubicacion"
-                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    class="block text-text dark:text-gray-300 font-semibold mb-2">
                                     <i class="fas fa-house-user mr-2"></i>Perfil de la Ubicación
                                 </label>
                                 <select id="perfil-ubicacion" name="Perfil_Ubicacion"
@@ -681,8 +678,7 @@
                             </div>
 
                             <div class="mb-6">
-                                <label for="cerca-agua"
-                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <label for="cerca-agua" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                     <i class="fas fa-water mr-2"></i>¿La ubicación está a menos de 250 metros de lago o
                                     laguna?
                                 </label>
@@ -698,8 +694,7 @@
                         <!-- Campos específicos para MASCOTAS -->
                         <div id="campos-mascotas" class="hidden">
                             <div class="mb-6">
-                                <label for="tipo-mascota"
-                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <label for="tipo-mascota" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                     <i class="fas fa-paw mr-2"></i>Tipo de Mascota
                                 </label>
                                 <select id="tipo-mascota" name="Tipo_Mascota"
@@ -711,8 +706,7 @@
                             </div>
 
                             <div class="mb-6">
-                                <label for="raza-mascota"
-                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <label for="raza-mascota" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                     <i class="fas fa-dna mr-2"></i>Raza
                                 </label>
                                 <input type="text" id="raza-mascota" name="Raza_Mascota"
@@ -721,8 +715,7 @@
                             </div>
 
                             <div class="mb-6">
-                                <label for="edad-mascota"
-                                    class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                <label for="edad-mascota" class="block text-text dark:text-gray-300 font-semibold mb-2">
                                     <i class="fas fa-birthday-cake mr-2"></i>Edad de la Mascota
                                 </label>
                                 <input type="number" id="edad-mascota" name="Edad_Mascota" min="0" max="30"
@@ -734,7 +727,7 @@
 
                     <!-- Mensaje (Opcional) -->
                     <div class="mb-6">
-                        <label for="mensaje" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                        <label for="mensaje" class="block text-text dark:text-gray-300 font-semibold mb-2">
                             <i class="fas fa-comment mr-2"></i>Mensaje (Opcional)
                         </label>
                         <textarea id="mensaje" name="Mensaje" rows="4"
@@ -744,7 +737,7 @@
 
                     <!-- Botón de Envío -->
                     <button type="submit" id="btn-enviar"
-                        class="w-full bg-primary text-white font-bold py-4 px-6 rounded-lg hover:bg-orange-600 transition-colors shadow-lg">
+                        class="w-full bg-primary text-white font-bold py-4 px-6 rounded-lg hover:bg-text transition-colors shadow-lg">
                         <span id="btn-texto">
                             <i class="fas fa-paper-plane mr-2"></i>
                             Enviar Solicitud
@@ -760,11 +753,11 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="py-16 bg-gray-50 dark:bg-gray-800">
+    <section id="contacto" class="py-16 bg-secondary dark:bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Contacto</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300">
+                <h2 class="text-3xl font-bold text-text dark:text-white mb-4">Contacto</h2>
+                <p class="text-xl text-text dark:text-gray-300">
                     ¿Listo para proteger tu futuro? Contáctame hoy mismo
                 </p>
             </div>
@@ -775,8 +768,8 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-900 dark:text-white">Teléfono</h4>
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <h4 class="font-semibold text-text dark:text-white">Teléfono</h4>
+                            <p class="text-text dark:text-gray-300">
                                 <a href="tel:+526624524808">+52 (662) 452-4808</a>
                             </p>
                         </div>
@@ -786,8 +779,8 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-900 dark:text-white">Email</h4>
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <h4 class="font-semibold text-text dark:text-white">Email</h4>
+                            <p class="text-text dark:text-gray-300">
                                 <a href="mailto:contacto@cgm-seguros.com">contacto@cgm-seguros.com</a>
                             </p>
                         </div>
@@ -797,8 +790,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-900 dark:text-white">Ubicación</h4>
-                            <p class="text-gray-600 dark:text-gray-300">Hermosillo, Sonora, México</p>
+                            <h4 class="font-semibold text-text dark:text-white">Ubicación</h4>
+                            <p class="text-text dark:text-gray-300">Hermosillo, Sonora, México</p>
                         </div>
                     </div>
                     <div class="flex items-center">
@@ -806,8 +799,8 @@
                             <i class="fab fa-whatsapp"></i>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-900 dark:text-white">WhatsApp</h4>
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <h4 class="font-semibold text-text dark:text-white">WhatsApp</h4>
+                            <p class="text-text dark:text-gray-300">
                                 <a href="https://wa.me/526624524808" target="_blank">+52 (662) 452-4808</a>
                             </p>
                         </div>
@@ -819,7 +812,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-orange-950 to-amber-950 dark:from-gray-900 dark:to-gray-800 text-white py-12">
+    <footer class="bg-text dark:bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div class="flex items-center space-x-3">
@@ -828,22 +821,22 @@
                 <div class="flex justify-center md:justify-end">
                     <div class="flex space-x-6">
                         <a href="#inicio"
-                            class="text-orange-300 dark:text-gray-400 hover:text-orange-200 dark:hover:text-white transition-colors">Inicio</a>
+                            class="text-secondary dark:text-gray-400 hover:text-white dark:hover:text-white transition-colors">Inicio</a>
                         <a href="#servicios"
-                            class="text-orange-300 dark:text-gray-400 hover:text-orange-200 dark:hover:text-white transition-colors">Servicios</a>
+                            class="text-secondary dark:text-gray-400 hover:text-white dark:hover:text-white transition-colors">Servicios</a>
                         <a href="#formulario-cotizacion"
-                            class="text-orange-300 dark:text-gray-400 hover:text-orange-200 dark:hover:text-white transition-colors">Cotizar</a>
+                            class="text-secondary dark:text-gray-400 hover:text-white dark:hover:text-white transition-colors">Cotizar</a>
                         <a href="#tu-agente"
-                            class="text-orange-300 dark:text-gray-400 hover:text-orange-200 dark:hover:text-white transition-colors">
+                            class="text-secondary dark:text-gray-400 hover:text-white dark:hover:text-white transition-colors">
                             Tu Agente
                         </a>
                         <a href="#contacto"
-                            class="text-orange-300 dark:text-gray-400 hover:text-orange-200 dark:hover:text-white transition-colors">Contacto</a>
+                            class="text-secondary dark:text-gray-400 hover:text-white dark:hover:text-white transition-colors">Contacto</a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-orange-900 dark:border-gray-600 pt-8 text-center">
-                <p class="text-orange-400 dark:text-gray-500">&copy; 2025 CGM Seguros. Todos los derechos
+            <div class="border-t border-text/40 dark:border-gray-600 pt-8 text-center">
+                <p class="text-secondary dark:text-gray-500">&copy; 2025 CGM Seguros. Todos los derechos
                     reservados.</p>
             </div>
         </div>
